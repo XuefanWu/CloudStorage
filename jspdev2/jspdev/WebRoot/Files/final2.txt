@@ -1,0 +1,22 @@
+template<typename Precision>//whatever we want just make it be, need to know it brifly
+class Vector{
+private:
+Precision x,y,z;
+public:
+Vector(Precision x, Precision y,Precision z):x(x),y(y),z(z){}
+friend Vector<Precision> operator +(const Vector<Precision> &left,const Vector<Precision>& right);
+//not part of this class, 
+}
+template<typename P>
+Vector<P> operator +(const Vector<P> &left,const Vector<P>& right){
+return Vector(left.x+right.x,left.y+right.y,left.z+right.z);
+}
+//outside the class, so do not know Precision
+int main(){
+Vector<double> a,b;
+Vector<double> c=a+b;
+Vector<string> d("abc","def","ghi");
+Vector<string> e("123","x","j");
+Vector<string> f=d+e;
+cout<<f<<'\n';
+}
